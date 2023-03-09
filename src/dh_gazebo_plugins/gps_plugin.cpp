@@ -11,10 +11,6 @@ GazeboGpsPlugin::GazeboGpsPlugin() : SensorPlugin(), random_generator_(random_de
 {
 }
 
-GazeboGpsPlugin::~GazeboGpsPlugin()
-{
-}
-
 void GazeboGpsPlugin::Load(sensors::SensorPtr sensor, sdf::ElementPtr sdf)
 {
   // Store the pointer to the parent sensor.

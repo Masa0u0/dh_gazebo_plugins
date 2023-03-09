@@ -26,7 +26,6 @@ public:
   using VelTopic = geometry_msgs::Vector3WithCovarianceStamped;
 
   GazeboGpsPlugin();
-  virtual ~GazeboGpsPlugin();
 
 protected:
   void Load(sensors::SensorPtr sensor, sdf::ElementPtr sdf);
