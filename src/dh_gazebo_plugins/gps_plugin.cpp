@@ -95,15 +95,15 @@ void GazeboGpsPlugin::Load(sensors::SensorPtr sensor, sdf::ElementPtr sdf)
   // Fill the static parts of the ground speed message.
   gz_ground_speed_message_.header.frame_id = link_name;
 
-  gz_ground_speed_message_.vector.covariance[0] = sqr(hor_vel_std_dev);
-  gz_ground_speed_message_.vector.covariance[1] = 0.;
-  gz_ground_speed_message_.vector.covariance[2] = 0.;
-  gz_ground_speed_message_.vector.covariance[3] = 0.;
-  gz_ground_speed_message_.vector.covariance[4] = sqr(hor_vel_std_dev);
-  gz_ground_speed_message_.vector.covariance[5] = 0.;
-  gz_ground_speed_message_.vector.covariance[6] = 0.;
-  gz_ground_speed_message_.vector.covariance[7] = 0.;
-  gz_ground_speed_message_.vector.covariance[8] = sqr(ver_vel_std_dev);
+  gz_ground_speed_message_.vel.covariance[0] = sqr(hor_vel_std_dev);
+  gz_ground_speed_message_.vel.covariance[1] = 0.;
+  gz_ground_speed_message_.vel.covariance[2] = 0.;
+  gz_ground_speed_message_.vel.covariance[3] = 0.;
+  gz_ground_speed_message_.vel.covariance[4] = sqr(hor_vel_std_dev);
+  gz_ground_speed_message_.vel.covariance[5] = 0.;
+  gz_ground_speed_message_.vel.covariance[6] = 0.;
+  gz_ground_speed_message_.vel.covariance[7] = 0.;
+  gz_ground_speed_message_.vel.covariance[8] = sqr(ver_vel_std_dev);
 
   // Advertise publishers
   gz_gps_pub_ = nh_.advertise<PosTopic>("/" + ns_ + "/" + gps_topic_, 1);
@@ -131,9 +131,9 @@ void GazeboGpsPlugin::onUpdate()
   gz_gps_message_.header.stamp.nsec = current_time.nsec;
 
   // Fill the ground speed message.
-  gz_ground_speed_message_.vector.vector.x = W_ground_speed_W_L.X();
-  gz_ground_speed_message_.vector.vector.y = W_ground_speed_W_L.Y();
-  gz_ground_speed_message_.vector.vector.z = W_ground_speed_W_L.Z();
+  gz_ground_speed_message_.vel.vel.vx = W_ground_speed_W_L.X();
+  gz_ground_speed_message_.vel.vel.vy = W_ground_speed_W_L.Y();
+  gz_ground_speed_message_.vel.vel.vz = W_ground_speed_W_L.Z();
   gz_ground_speed_message_.header.stamp.sec = current_time.sec;
   gz_ground_speed_message_.header.stamp.nsec = current_time.nsec;
 

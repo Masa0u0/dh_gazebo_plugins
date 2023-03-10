@@ -6,7 +6,8 @@
 #include <gazebo/physics/physics.hh>
 #include <gazebo/sensors/sensors.hh>
 #include <sensor_msgs/NavSatFix.h>
-#include <geometry_msgs/Vector3WithCovarianceStamped.h>
+
+#include <dh_common_msgs/LinearVelocityWithCovarianceStamped.h>
 
 namespace gazebo
 {
@@ -23,7 +24,7 @@ class GazeboGpsPlugin : public SensorPlugin
 public:
   using NormalDistribution = std::normal_distribution<double>;
   using PosTopic = sensor_msgs::NavSatFix;
-  using VelTopic = geometry_msgs::Vector3WithCovarianceStamped;
+  using VelTopic = dh_common_msgs::LinearVelocityWithCovarianceStamped;
 
   GazeboGpsPlugin();
 

@@ -1,0 +1,5 @@
+- git: {
+  local-name: dh_common_msgs,
+  uri: git@github.com:Masa0u0/dh_common_msgs.git,
+  version: main,
+}
