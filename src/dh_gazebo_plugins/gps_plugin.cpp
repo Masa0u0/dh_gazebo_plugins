@@ -124,6 +124,7 @@ void GazeboGpsPlugin::onUpdate()
     ground_speed_n_[2](random_generator_));
 
   // Fill the GPS message.
+  // TODO: ノイズを加える
   gz_gps_message_.latitude = parent_sensor_->Latitude().Degree();
   gz_gps_message_.longitude = parent_sensor_->Longitude().Degree();
   gz_gps_message_.altitude = parent_sensor_->Altitude();
